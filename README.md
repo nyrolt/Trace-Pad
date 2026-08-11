@@ -40,43 +40,25 @@
 
 ##  Project Structure
 
-Trace Pad/
-│
-├── index.html
-│   └── Main landing page
-├── login.html
-│   └── Login, Signup & Reset Password modal
-│
-├── notes.html
-│   └── Notes app workspace
-│
-├── manifest.json
-│   └── PWA Web Manifest
-│
-├── sw.js
-│   └── Service Worker for offline PWA support
-│
-├── firestore.rules
-│   └── Firebase Firestore security rules
-│
+```text
+Trace-Pad/
+├── assets/             # Icons, images, and brand assets (ip.png, icon.svg)
 ├── css/
-│   └── style.css
-│       └── Styles, dark mode tokens & layout
-│
+│   └── style.css       # Unified design system, CSS variables, and layout styles
 ├── js/
-│   ├── firebase-config.js
-│   │   └── Firebase initialization & offline persistence
-│   │
-│   ├── auth.js
-│   │   └── Authentication
-│   │
-│   └── notes.js
-│       └── Notes CRUD, tagging, pinning & search
-│
-└── assets/
-    └── icon.svg
-        └── PWA app icon
+│   ├── firebase-config.js # Firebase app initialization & offline persistence config
+│   ├── auth.js            # Authentication logic, theme manager & SW registration
+│   └── notes.js           # CRUD operations, Markdown rendering, pinning & filtering
+├── firestore.rules     # Security rules for Cloud Firestore
+├── index.html          # Landing / Home page
+├── login.html          # Authentication page (Sign in / Sign up / Forgot Password)
+├── notes.html          # Main application dashboard
+├── manifest.json       # Web App Manifest for PWA support
+├── sw.js               # Service Worker for offline caching
+└── README.md           # Project documentation
+```
 
+---
 
 ## Run Locally Clone the repository
 
@@ -98,7 +80,7 @@ Trace Pad/
    - Create a **Cloud Firestore Database**.
    - Update the configuration object in `js/firebase-config.js` with your credentials:
      ```javascript
-
+     
      const firebaseConfig = {
        apiKey: "YOUR_API_KEY",
        authDomain: "YOUR_AUTH_DOMAIN",
