@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes — Tracepad</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="tp-navbar">
+        <a class="tp-brand" href="index.html">
+            <svg class="tp-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            Tracepad
+        </a>
+        <div class="tp-nav-links">
+            <a class="tp-nav-link" href="index.html">Home</a>
+            <button class="tp-theme-toggle" type="button" onclick="toggleTheme()"></button>
+            <span class="tp-user-email" id="userEmail"></span>
+            <button class="tp-btn tp-btn-ghost-dark" id="logoutBtn" type="button">Log out</button>
+        </div>
+    </nav>
+
+    <main class="tp-container">
+        <!-- Search & View Toolbar -->
+        <div class="tp-toolbar">
+            <div class="tp-search-wrap">
+                <svg class="tp-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input class="tp-search-input" id="searchTxt" type="search"
+                    placeholder="Search notes by title, text, or #tag..." aria-label="Search notes">
+            </div>
+
+            <div style="display: flex; gap: 0.4rem;">
+                <button class="tp-btn tp-btn-ghost tp-btn-icon" id="viewGridBtn" type="button" title="Grid View">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                </button>
+                <button class="tp-btn tp-btn-ghost tp-btn-icon" id="viewListBtn" type="button" title="List View">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <line x1="3" y1="6" x2="3.01" y2="6" />
+                        <line x1="3" y1="12" x2="3.01" y2="12" />
+                        <line x1="3" y1="18" x2="3.01" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Note Composer -->
+        <section class="tp-composer">
+            <input class="tp-input-title" id="addTitle" type="text" placeholder="Title (optional)">
+            <textarea class="tp-input-body" id="addTxt" rows="3"
+                placeholder="Write a note... (Supports Markdown: **bold**, *italic*, `# header`, `- list`)"></textarea>
+
+            <div class="tp-composer-meta">
+                <div class="tp-composer-options">
+                    <!-- Tags Input -->
+                    <input class="tp-input-tags" id="addTags" type="text" placeholder="Tags (e.g. work, todo)">
+                </div>
+
+                <div class="tp-composer-actions">
+                    <button class="tp-btn tp-btn-primary" id="addBtn" type="button">Add Note</button>
+                    <button class="tp-btn tp-btn-ghost" id="cancelEditBtn" type="button" hidden>Cancel</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="tp-divider"><span>Your Notes</span></div>
+
+        <!-- Notes Grid / List Container -->
+        <div id="notes" class="tp-notes-grid"></div>
+    </main>
+
+    <!-- Toast Notifications Container -->
+    <div class="tp-toast-container" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Tracepad — Modern Notepad",
+  "short_name": "Tracepad",
+  "description": "A simple, fast, and searchable notepad with real-time cloud sync and offline support.",
+  "start_url": "notes.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

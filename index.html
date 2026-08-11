@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracepad — Online Local Notepad & Cloud Sync</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/ip.png">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="tp-navbar">
+        <a class="tp-brand" href="index.html">
+            <img class="tp-brand-icon" src="assets/ip.png" alt="Tracepad">
+            Tracepad
+        </a>
+
+        <div class="tp-nav-links">
+            <a class="tp-nav-link" href="index.html">Home</a>
+            <button class="tp-theme-toggle" type="button" onclick="toggleTheme()"></button>
+            <div id="authNav" class="tp-nav-auth"></div>
+        </div>
+    </nav>
+
+    <main class="tp-hero">
+        <span class="tp-eyebrow">Offline-First • Real-time Cloud Sync</span>
+        <h1>Capture thoughts<br>anytime & anywhere</h1>
+
+        <p class="tp-hero-sub">
+            Tracepad is a simple, sleek notepad for writing, organizing, and managing your notes with ease.
+        </p>
+
+        <div class="tp-hero-actions">
+            <a class="tp-btn tp-btn-primary" href="login.html">Get Started Free</a>
+            <a class="tp-btn tp-btn-ghost" href="notes.html">Open My Notes</a>
+        </div>
+    </main>
+
+
+    <section class="tp-features">
+
+        <div class="tp-feature">
+            <span class="tp-feature-icon">✨</span>
+            <h3>Markdown & Tags</h3>
+            <p>Write with markdown formatting, color-code notes, and organize with custom tags.</p>
+        </div>
+
+        <div class="tp-feature">
+            <span class="tp-feature-icon">📌</span>
+            <h3>Pin & Search</h3>
+            <p>Keep your most important notes pinned at top and search through everything instantly.</p>
+        </div>
+
+        <div class="tp-feature">
+            <span class="tp-feature-icon">🌙</span>
+            <h3>Dark & Light Mode</h3>
+            <p>Sleek, eye-friendly design that seamlessly adapts to dark or light mode preferences.</p>
+        </div>
+
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        renderAuthNav("authNav");
+    </script>
+</body>
+
+</html>
